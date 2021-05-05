@@ -6,6 +6,6 @@ homepage_blueprint = Blueprint('home', __name__)
 @homepage_blueprint.route('/', methods=['GET'])
 @homepage_blueprint.route('/home', methods=['GET'])
 def home():
-    """Download a book
+    """Render the homepage
     """
     return render_template('home.jinja2')
