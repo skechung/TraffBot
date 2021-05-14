@@ -29,8 +29,10 @@ async function calc_duration() {
 
     console.log("coord", coord);
 
-    let hum_temp_wind = await get_weather(coord[0], coord[1]);
-    let duration_in_mins = model(coord[0], time, hum_temp_wind[1], hum_temp_wind[1], hum_temp_wind[2]);
+    //let hum_temp_wind = await get_weather(coord[0], coord[1]);
+
+    // fake weather info
+    let hum_temp_wind = [30, 40, 20];
 
     document.getElementById("calc-box").style.display = "none";
     document.getElementById("time-label").style.display = "none";
@@ -38,7 +40,10 @@ async function calc_duration() {
     document.getElementById("time-input").style.display = "none";
 
     document.getElementById("result-box").style.display = "flex";
-    document.getElementById("result").textContent = duration_in_mins.toString() + " minutes";
+    model(coord[0], time, hum_temp_wind[1], hum_temp_wind[1], hum_temp_wind[2])
+    .then(duration_in_mins => {
+      document.getElementById("result").textContent = duration_in_mins.toString() + " minutes";
+    })
   }
 }
 
@@ -77,7 +82,7 @@ async function get_weather(lat, long) {
 }
 
 /* model function */
-function model(lat, time, hum, temp, wind) {
+async function model(lat, time, hum, temp, wind) {
 
   // fake input
   let input = {
@@ -90,8 +95,8 @@ function model(lat, time, hum, temp, wind) {
 
   console.log("about to fetch post ");
 
-  // send it?
-  fetch (`/api/prediction`, {
+  // get the prediction
+  return fetch (`/api/prediction`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -101,7 +106,8 @@ function model(lat, time, hum, temp, wind) {
   .then(response => response.json())
   .then(data => {
       // do the model here
-    return data;
+    console.log("data", data.data.prediction);
+    return data.data.prediction;
   })
   .catch((error) => {
     console.error('Predition error in model:', error);
