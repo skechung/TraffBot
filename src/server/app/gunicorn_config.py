@@ -1,0 +1,15 @@
+pidfile = 'traffbot.pid'
+worker_tmp_dir = '/dev/shm'
+worker_class = 'gthread'
+workers = 2
+worker_connections = 10
+timeout = 30
+keepalive = 2
+threads = 2
+proc_name = 'traffbot'
+bind = '0.0.0.0:9000'
+backlog = 2048
+accesslog = '-'
+errorlog = '-'
+user = 'traffbot'
+group = 'traffbot'

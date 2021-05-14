@@ -3,7 +3,7 @@ from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
 
-app.config.from_pyfile('config.cfg')
+app.config.from_pyfile('config.py')
 
 app.register_blueprint(homepage_blueprint, url_prefix='')
 app.register_blueprint(prediction_blueprint, url_prefix='/api')
