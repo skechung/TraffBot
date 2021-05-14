@@ -78,6 +78,33 @@ async function get_weather(lat, long) {
 
 /* model function */
 function model(lat, time, hum, temp, wind) {
-  // do the model here
-  return "duration in mins";
+
+  // fake input
+  let input = {
+    "lat": lat,
+    "time": time,
+    "hum": hum,
+    "temp": temp,
+    "wind": wind,
+  }
+
+  console.log("about to fetch post ");
+
+  // send it?
+  fetch (`/api/prediction`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(input), // post body
+  })
+  .then(response => response.json())
+  .then(data => {
+      // do the model here
+    return data;
+  })
+  .catch((error) => {
+    console.error('Predition error in model:', error);
+  });
+  
 }
