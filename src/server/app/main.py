@@ -11,4 +11,4 @@ app.register_blueprint(weather_blueprint, url_prefix='/api')
 
 
 if __name__ == "__main__":
-    app.run(host = '0.0.0.0', port = app.config['PORT'], debug = False)
+    app.run(host = '0.0.0.0', port = app.config['PORT'], debug = False, ssl_context='adhoc')
