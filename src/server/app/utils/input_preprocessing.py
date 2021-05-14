@@ -1,19 +1,16 @@
-import pickle 
-import numpy as np
-from sklearn.neural_network import MLPRegressor
+import pandas as pd
 
-def make_prediction(lat, start_time, humidity, temp, wind_speed):
-    feature = [lat, start_time, humidity, temp, wind_speed]
-    model = pickle.load(open('../server/app/model/trained_model.pickle', 'rb'))
-    mean = pickle.load(open('../server/app/model/model_mean_values', 'rb'))
-    var  = pickle.load(open('../server/app/model/model_var_values', 'rb'))
-
+def scale(features, means, vars):
     scaled_features = []
+    
+    # Turn Start Time into datetime object  
+    features[1] = pd.to_datetime(features[1], format='%H:%M:%S')
+
+    # Turn Start Time into a float that represents collision start
+    features[1] = round(features[1].hour + (features[1].minute / 60), 1)
+
     # Scale each feature
-    for i in range(len(feature)):
-        scaled_features.append((feature[i]-mean[i]) / var[i])
+    for i in range(len(features)):
+        scaled_features.append((features[i]-means[i]) / vars[i])
 
-    return model.predict(np.array(scaled_features).reshape(1,-1))[0]
-
-def time_scalar():
-    pass
+    return scaled_features
