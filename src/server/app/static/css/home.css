@@ -30,7 +30,7 @@ h1 {
 }
 
 #main-box {
-  padding-top: 10%;
+  padding-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@ h1 {
 }
 
 h2 {
-  padding: 20px;
+  padding: 15px;
   align-self: center;
   font-size: 60px;
   text-align: center;
@@ -103,22 +103,22 @@ h4{
 
 /* Did you just get into a car crash... */
 #background-info {
-  padding: 20px;
+  padding: 15px;
 }
 
 /* Enter start time of crash... */
 #time-label-box {
-  padding: 20px;
+  padding: 15px;
 }
 
 /* Time input */
 #time-box {
-  padding: 20px;
+  padding: 15px;
 }
 
 /* Calculate button */
 #calc-box {
-  padding: 20px;
+  padding: 15px;
 }
 
 /* result (duration in mins) */
@@ -134,3 +134,4 @@ h4{
     flex-direction: column;
   }
 }
+
