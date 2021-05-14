@@ -1,0 +1,136 @@
+body {
+  font-family: "Open Sans Condensed";
+  min-width: 350px;
+  font-weight: normal;
+  background-color: #d2d2d2;
+}
+
+nav {
+  padding: 10px;
+  background-color: rgb(16, 142, 156);
+  color: white;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+#nav-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+}
+
+#logo {
+  height: 30px;
+}
+
+h1 {
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+#main-box {
+  padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+h2 {
+  padding: 20px;
+  align-self: center;
+  font-size: 60px;
+  text-align: center;
+  font-weight: normal;
+}
+
+#bottom-box {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  align-items: center;
+  align-content: flex-start;
+}
+
+h3 {
+  max-width: 700px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: normal;
+}
+
+h4{
+  font-size: 50px;
+  text-align: center;
+}
+
+#input-box {
+  display: flex;
+  align-items: center;
+}
+
+#calc-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  height: 100%;
+}
+
+#time-label {
+  padding: 5px;
+  font-size: 30px;
+}
+
+#time-input {
+  font-size: 25px;
+  padding: 5px;
+}
+
+#calc {
+  padding: 10px 25px;
+  border-radius: 25px;
+  color: white;
+  background-color: #f9ae17;
+  font-family: "Open Sans Condensed";
+  max-width: 400px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Did you just get into a car crash... */
+#background-info {
+  padding: 20px;
+}
+
+/* Enter start time of crash... */
+#time-label-box {
+  padding: 20px;
+}
+
+/* Time input */
+#time-box {
+  padding: 20px;
+}
+
+/* Calculate button */
+#calc-box {
+  padding: 20px;
+}
+
+/* result (duration in mins) */
+/* initially no display */
+#result-box {
+  display: none;
+}
+
+/* if mobile */
+
+@media only screen and (max-width: 500px) {
+  #input-box {
+    flex-direction: column;
+  }
+
+}
+
