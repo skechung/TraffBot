@@ -69,7 +69,7 @@ and set it as an env var
 */
 async function get_weather(lat, long) {
 
-  let url = `weather/${lat}/${long}`;
+  let url = `/api/weather/${lat}/${long}`;
 
   // wait for the response
   let response = await fetch(url);
