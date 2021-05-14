@@ -1,5 +1,5 @@
 # ---- Server Config ------------ #
-PORT = 9000 # Port of the Server
+PORT = 443 # Port of the Server
 # ---- Server Config Ends ------- #
 
 MODEL_PICKLE_PATH='./models/trained_model.pickle'
