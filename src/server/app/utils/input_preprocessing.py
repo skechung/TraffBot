@@ -15,3 +15,5 @@ def make_prediction(lat, start_time, humidity, temp, wind_speed):
 
     return model.predict(np.array(scaled_features).reshape(1,-1))[0]
 
+def time_scalar():
+    pass
