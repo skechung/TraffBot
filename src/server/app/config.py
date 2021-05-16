@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ---- Server Config ------------ #
-PORT = 443 # Port of the Server
+PORT = 9000 # Port of the Server
 # ---- Server Config Ends ------- #
 WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 

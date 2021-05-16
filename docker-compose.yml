@@ -1,0 +1,54 @@
+version: '3.5'
+
+services:
+  ngrok:
+    image: wernight/ngrok:latest
+    environment:
+      - NGROK_PORT=172.28.0.3:443
+      - NGROK_AUTH=${NGROK_AUTH}
+    depends_on:
+      - nginx
+    networks:
+      traffbot_proxy:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - static_data:/var/www/static
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ${SSL_CERT_PATH}:/etc/ssl/certs/cert.pem
+      - ${SSL_CERT_KEY_PATH}:/etc/ssl/certs/key.pem
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      traffbot_proxy:
+        ipv4_address: 
+          172.28.0.3  
+    depends_on:
+      - traffbot
+  traffbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: traffbot
+    image: traffbot:latest
+    volumes:
+      - static_data:/home/traffbot/app/static
+    expose:
+      - "9000"
+    networks:
+      traffbot_proxy:
+        ipv4_address: 172.28.0.2
+networks:
+  traffbot_proxy:
+    name: traffbot_proxy
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/29
+volumes:
+  static_data:
+    name: static_data
+  certs:
+    name: traffbot_certs
