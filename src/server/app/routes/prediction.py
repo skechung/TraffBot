@@ -14,7 +14,4 @@ def prediction():
     data = list(data.values())
     predicted_time = crash_time_regressor.predict(data)
 
-    #print(request.get_json())
-    print(predicted_time)
-
-    return jsonify({'data': {'prediction': predicted_time}})
+    return jsonify({'data': {'prediction': round(predicted_time)}})

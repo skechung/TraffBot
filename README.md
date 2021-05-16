@@ -1,22 +1,16 @@
-# ECS171Project
+# TraffBot
 
 ## **Summary**
 Using a dataset of 4.2 million U.S car accidents, we wish to explore the connections between time of crash, road conditions, and road features, and the severity of car accidents (in relation to how long it takes to clear the traffic accident). This data set is from [Kaggle](https://www.kaggle.com/sobhanmoosavi/us-accidents?select=US_Accidents_Dec20.csv), and has 48 different variables. It is important to note this data is only for 49 states, so it might not be able to be applied on data outside of the United States.
 
-## **Project Schema**
-The repository is structured via the following schema:
+## **Demo**
+On loading the site, a one-time prompt will ask you to share location. From there, you will be prompted to enter the time at which you got into a crash or how long it will take for a crash to be cleared. Once you inputted the time and clicked "Calculate", TraffBot will predict how long it will take.
 
-- **src/notebooks/**
-  - jupyter notebooks live here
-- **src/datasets/**
-  - the datasets live here
-- **src/server/**
-  - code related to the website & demo lives here
-- **src/fe_scripts/**
-  - code related scripts in regards to feature engineer live here
-- **tests/**
-  - unit, integration, and other QA testing scripts live here
-  - 
+<p align="center">
+  <img src="./screenshots/loaded_page.png" width="170"/>
+  <img src="./screenshots/prediction_page.png" width="170"/>
+</p>
+
 ## **Configuration**
 Configuration options need to be set based on whether the model is run locally or deployed via Docker.
 
@@ -60,3 +54,17 @@ To run the server, it depends if it is done through Docker or not. To run the se
 3) Build the containers via `docker-compose build`
 4) Create and run the containers with `docker-compose up`.
 5) Go to [Endpoints>Status](https://dashboard.ngrok.com/endpoints/status) on Ngrok's website and see the generated tunnels to access the site. Note that these tunnels change each time you run `docker-compose up`.
+
+## **Project Schema**
+The repository is structured via the following schema:
+
+- **src/notebooks/**
+  - jupyter notebooks live here
+- **src/datasets/**
+  - the datasets live here
+- **src/server/**
+  - code related to the website & demo lives here
+- **src/fe_scripts/**
+  - code related scripts in regards to feature engineer live here
+- **tests/**
+  - unit, integration, and other QA testing scripts live here
