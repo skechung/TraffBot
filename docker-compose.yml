@@ -50,5 +50,3 @@ networks:
 volumes:
   static_data:
     name: static_data
-  certs:
-    name: traffbot_certs
